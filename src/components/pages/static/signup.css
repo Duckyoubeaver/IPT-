@@ -1,0 +1,38 @@
+.signup_container {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 16px;
+  padding: 4px;
+}
+
+.signin_input_group {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.signin_input {
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+.signin_button {
+  border: 1px solid rgb(97, 0, 102);
+  background-color: rgb(97, 0, 102);
+  color: white;
+  width: 96%;
+  padding: 16px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.signin_button:hover {
+  background-color: rgb(133, 0, 139);
+  border-color: rgb(133, 0, 139);
+}
+
+.loginLink {
+  text-align: center;
+  margin-top: 16px;
+}

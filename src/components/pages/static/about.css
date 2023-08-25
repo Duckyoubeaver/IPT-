@@ -1,0 +1,26 @@
+.main-content {
+  padding: 40px;
+}
+
+/* Style the about section */
+.about-section {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.about-content {
+  text-align: center;
+}
+
+.about-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.5;
+}

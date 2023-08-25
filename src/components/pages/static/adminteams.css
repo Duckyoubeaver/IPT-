@@ -1,0 +1,125 @@
+/* AdminCss/AdminTeams.css */
+
+.admin-teams-container {
+  display: flex;
+}
+
+.channel-bar {
+  width: 12%;
+  background-color: rgb(248, 248, 250);
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-header {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.channel-header .caret-icon {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.add-group-button,
+.add-direct-message-button {
+  color: #000000;
+  border: none;
+  border-radius: 5px; /* Slightly rounded edges */
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.main-content {
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.group-chat {
+  margin-bottom: 10px;
+}
+
+.direct-message {
+  margin-bottom: 5px;
+}
+
+.invite-agent {
+  padding: 7px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  width: 100%;
+  background-color: #0056b3;
+  transition: background-color 0.4s ease; /* Add transition for background-color */
+
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-self: center;
+  cursor: pointer;
+}
+
+.invite-agent:hover {
+  background-color: #003976;
+}
+
+.invite-agent:focus {
+  outline: none;
+}
+
+/* New Styles for Group and Direct Message Buttons */
+
+.group-item,
+.direct-message {
+  padding: 8px 12px;
+  margin: 4px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent; /* Transparent background */
+  color: #333;
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* Smooth transition on hover */
+}
+
+.group-item:hover,
+.direct-message:hover {
+  background-color: #f2f2f2; /* Light gray background on hover */
+}
+
+.group-item:active,
+.direct-message:active {
+  background-color: #e0e0e0; /* Darker gray background on click */
+}
+
+.caret-icon {
+  transition: transform 0.2s ease;
+}
+
+.caret-icon.down {
+  transform: rotate(90deg);
+}
+
+.caret-icon.right {
+  transform: rotate(0);
+}

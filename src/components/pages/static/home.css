@@ -1,0 +1,262 @@
+/* src/styles.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: #ffffff;
+  overflow-x: hidden; /* Hide horizontal scrollbars */
+  z-index: -100;
+}
+
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 30px;
+}
+
+.nav-links li {
+  margin-right: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-button {
+  border: 2px solid white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  position: relative;
+}
+
+.parallax {
+  position: absolute;
+  top: 0; /* Adjust this value */
+  right: 0; /* Adjust this value */
+  bottom: 0; /* Adjust this value */
+  left: 0; /* Adjust this value */
+  width: 100vw; /* Cover the entire viewport width */
+  height: 50%; /* Cover the entire viewport height */
+  background-image: url("270177.jpeg");
+  background-attachment: fixed; /* Keep the background fixed while scrolling */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Adjust to cover the entire section */
+  z-index: -1;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.hero-text {
+  text-align: center;
+  align-items: center;
+}
+.hero-content {
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 800px;
+  padding: 8rem 4rem 2rem; /* Adjust padding to move content up */
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.hero h1 {
+  margin-top: 0;
+  font-size: 2.2rem; /* Adjust the font size as needed */
+  line-height: 1.3; /* Adjust line height as needed */
+  color: black;
+  text-align: center;
+  white-space: nowrap; /* Prevent text from breaking into multiple lines */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid rgb(0, 0, 0); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(0, 0, 0);
+  }
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.left li {
+  margin-right: 40px;
+  list-style: none;
+}
+
+.left li a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.left li a:hover {
+  color: #007bff;
+}
+
+.cta-button {
+  background-color: #000000;
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10rem; /* Adjust margin to move button up */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.cta-button:hover {
+  background-color: #535353;
+}
+
+.slogan {
+  color: black;
+}
+
+.info-section,
+.vote-section,
+.leaders-section {
+  padding: 6rem 0; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center horizontally */
+  background-color: #f9f9f9; /* Background color for sections */
+  width: 100vw; /* Use viewport width for full width */
+  height: 100vh;
+  overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.info-section {
+  background-color: #ffb1ea; /* Light red background color */
+  margin-top: 0;
+}
+
+.vote-section {
+  background-color: #ffffff; /* Light green background color */
+}
+
+.leaders-section {
+  background-color: #ffef9f; /* Light blue background color */
+}
+
+.info-content,
+.vote-content,
+.leaders-content {
+  width: 100vh; /* Make content within sections take up full width */
+  max-width: 1200px; /* Set a maximum width for content */
+  padding: 0 2rem; /* Add some horizontal spacing */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin: 0 auto; /* Center the content horizontally */
+}
+
+.info-content h2,
+.vote-content h2,
+.leaders-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-description,
+.vote-description,
+.leaders-description {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.footer {
+  position: relative;
+  height: 200px; /* Adjust the height as needed */
+  background-color: white; /* Set the background color */
+  z-index: 1000; /* Ensure the footer appears above other elements */
+}
