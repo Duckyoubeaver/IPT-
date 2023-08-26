@@ -1,105 +1,45 @@
 import React from "react";
-import "./static/gallery.css"; // Import your CSS file
-import { useState } from "react";
-import { useEffect } from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Navbar from "./UserNavBar";
+import './static/gallery.css';
 
 const Gallery = () => {
-  const [slideIndex, setSlideIndex] = useState(1);
+  const images = [
+    "https://cdn.discordapp.com/attachments/935413965046050836/1144813789259243530/270177.jpeg",
+    "https://cdn.discordapp.com/attachments/935413965046050836/1144813789531881623/27017722.jpg",
+    "https://cdn.discordapp.com/attachments/935413965046050836/1144813789749981355/27017722_copy.jpg",
+    "https://cdn.discordapp.com/attachments/935413965046050836/1144813790223941783/27017722_copy_3.jpg",
+    "https://cdn.discordapp.com/attachments/935413965046050836/1144813790509150309/27017722_copy_5.jpg",
+    "https://cdn.discordapp.com/attachments/935413965046050836/1144797375718772766/270177.jpeg"
+  ];
 
-  const plusSlides = (n) => {
-    showSlides(slideIndex + n);
-  };
+  const imageDescriptions = [
+    "Ryan Lamb - Candidate for Vice Captain and/or Creative Arts Prefect",
+    "Luca Parsanajad - Candidate for School Captain and/or Creative Arts Prefect",
+    "Ansh Rawat - Candidate for Social Media Prefect and/or Vice Captain",
+    "Barsam banaiibajouri - Candidate for School Captain and/or Transport Prefect",
+    "Lynden Weisenhan - Candidate for Creative Arts prefect and/or Social Media prefect.",
+    "Dihein Kalatunga - Candidate for Vice Captain and/or School Captain."
+  ];
 
-  const currentSlide = (n) => {
-    showSlides(n);
-  };
-
-  const showSlides = (n) => {
-    let newSlideIndex = n;
-    const slides = document.getElementsByClassName("mySlides");
-    const dots = document.getElementsByClassName("dot");
-
-    if (n > slides.length) {
-      newSlideIndex = 1;
-    } else if (n < 1) {
-      newSlideIndex = slides.length;
-    }
-
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    slides[newSlideIndex - 1].style.display = "block";
-    dots[newSlideIndex - 1].className += " active";
-
-    setSlideIndex(newSlideIndex);
-  };
-
-  useEffect(() => {
-    showSlides(slideIndex);
-  }, []);
   return (
-    <div className="home">
-      <nav className="navbar">
-        <ul className="left">
-          <li>
-            <a href="/">HOME</a>
-          </li>
-          <li>
-            <a href="/about">ABOUT</a>
-          </li>
-          <li>
-            <a href="/gallery">GALLERY</a>
-          </li>
-        </ul>
-        <ul className="nav-links">
-          <li>
-            <a href="/vote" className="nav-button">
-              VOTE
-            </a>
-          </li>
-          <li>
-            <a href="/signin" className="nav-button">
-              LOGIN
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div className="slideshow-container">
-        <div className="mySlides fade">
-          <div className="numbertext">1 / 3</div>
-          <img src="d.jpeg" alt="Nature" style={{ width: "100%" }} />
-          <div className="text">Caption Text</div>
-        </div>
-        <div className="mySlides fade">
-          <div className="numbertext">2 / 3</div>
-          <img src="d.jpeg" alt="Snow" style={{ width: "100%" }} />
-          <div className="text">Caption Two</div>
-        </div>
-        <div className="mySlides fade">
-          <div className="numbertext">3 / 3</div>
-          <img src="d.jpeg" alt="Mds" style={{ width: "100%" }} />
-          <div className="text">Caption Three</div>
-        </div>
-        <a className="prev" onClick={() => plusSlides(-1)}>
-          ❮
-        </a>
-        <a className="next" onClick={() => plusSlides(1)}>
-          ❯
-        </a>
-        <br />
-        <div style={{ textAlign: "center" }}>
-          <span className="dot" onClick={() => currentSlide(1)}></span>
-          <span className="dot" onClick={() => currentSlide(2)}></span>
-          <span className="dot" onClick={() => currentSlide(3)}></span>
-        </div>
+    <>
+      <Navbar />
+      <div className="box">
+        <Carousel useKeyboardArrows={true}>
+          {images.map((URL, index) => (
+            <>
+            <p className="image-description">{imageDescriptions[index]}</p>
+            <div className="slide" key={index}>
+              <img alt="SRC candidiate images" src={URL} />
+            </div>
+            </>
+          ))}
+        </Carousel>
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default Gallery;

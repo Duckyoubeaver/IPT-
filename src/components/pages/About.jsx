@@ -1,4 +1,5 @@
 import React from "react";
+import video from "./src_trailer_1.mov";
 
 const About = () => {
   return (
@@ -44,6 +45,7 @@ const About = () => {
             </p>
           </div>
         </section>
+        <video src={video} width="800" height="400" controls />
       </main>
     </div>
   );
