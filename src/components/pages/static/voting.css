@@ -1,0 +1,13 @@
+.vote-submit {
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .vote-submit:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+  }

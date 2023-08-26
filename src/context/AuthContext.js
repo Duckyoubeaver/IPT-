@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "../firebase.js";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   doc,
   setDoc,
   collection,
-  addDoc,
   getDoc,
   arrayUnion,
   updateDoc,
@@ -14,32 +15,57 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  sendEmailVerification
 } from "firebase/auth";
 
-// import { auth } from '../firebase';
 
 const UserContext = createContext();
+
+
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
-  // const createUser = (email, password) => {
-  //   return createUserWithEmailAndPassword(auth, email, password);
-  // };
 
+  const sendEmailVerificationPro = (user) => {
+    return sendEmailVerification(user)
+      .then(() => {
+        // Email sent
+        console.log('Verification email sent.');
+      })
+      .catch((error) => {
+        console.error('Error sending verification email: ', error);
+        // Handle error gracefully
+      });
+  };
+  
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password).then(
-      async (result) => {
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then(async (result) => {
+        const user = result.user;
         try {
-          const ref = doc(db, "userinfo", result.user.uid);
+          const ref = doc(db, "userinfo", user.uid);
           await setDoc(ref, {});
-          // const docRef = await setDoc(ref, {}); //commented for warning
-          alert("New user created sucessfully");
+  
+          // Send verification email
+          await sendEmailVerificationPro(user);
+  
+          toast.success('Registration Successful! Verification code sent.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+  
         } catch (e) {
-          alert("Error adding document: ", e); //Security rule check
+          console.error("Error adding document: ", e);
+          // Handle error gracefully
         }
-      }
-    );
+      });
   };
 
   const CreateAgent = (email, password, fullName, businessID, role) => {

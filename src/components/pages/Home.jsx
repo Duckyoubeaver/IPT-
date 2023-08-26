@@ -1,35 +1,14 @@
 import React from "react";
-
+import Navbar from "./UserNavBar"
 import "./static/home.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   return (
     <div className="home">
-      <nav className="navbar">
-        <ul className="left">
-          <li>
-            <a href="">HOME</a>
-          </li>
-          <li>
-            <a href="/about">ABOUT</a>
-          </li>
-          <li>
-            <a href="/gallery">GALLERY</a>
-          </li>
-        </ul>
-        <ul className="nav-links">
-          <li>
-            <a href="/vote" className="nav-button">
-              VOTE
-            </a>
-          </li>
-          <li>
-            <a href="/signin" className="nav-button">
-              LOGIN
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <ToastContainer/>
+      <Navbar/>
       <div className="parallax"></div>
       <main className="main-content">
         <section className="hero">
