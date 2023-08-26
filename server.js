@@ -8,22 +8,20 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Generate a secure random key with 32 bytes (256 bits) only once during server startup
 const secureKey = crypto.randomBytes(32).toString("hex");
 
 const usedTokens = new Set();
 
-// Create a transporter object using Gmail SMTP settings
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "wonjunoh0708@gmail.com", // Your Gmail email address
-    pass: "voiawefijewqctvx", // Your Gmail password or app password (if using 2-step verification)
+    user: "wonjunoh0708@gmail.com", 
+    pass: "voiawefijewqctvx", 
   },
 });
 
 app.post("/invite", (req, res) => {
-  const { businessId, role, recipientEmail } = req.body; // Extract the businessId, role, and recipient's email from the request body
+  const { businessId, role, recipientEmail } = req.body; 
 
   try {
     // Generate the invitation token using the businessId and role
