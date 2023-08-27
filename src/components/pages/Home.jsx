@@ -2,9 +2,32 @@ import React from "react";
 import Navbar from "./UserNavBar"
 import "./static/home.css";
 import { ToastContainer, toast } from 'react-toastify';
+import { UserAuth } from "../../context/AuthContext";
+import {useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate()
+
+  const voteFunction = () => {
+    if (user === null) {
+
+        toast.error("You must be signed in to vote!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+      });
+    }
+    else {
+      navigate("/vote")
+    }
+  }
   return (
     <div className="home">
       <ToastContainer/>
@@ -18,7 +41,7 @@ const Home = () => {
               <p className="slogan">
                 Empower your voice in student council elections.
               </p>
-              <button className="cta-button">Vote Now</button>
+              <button className="cta-button" onClick={voteFunction} >Vote Now</button>
             </div>
           </div>
         </section>
@@ -66,7 +89,9 @@ const Home = () => {
               your vote securely and play a role in shaping the future of your
               student body.
             </p>
-            <button className="cta-button">Vote Now</button>
+            <button onClick={voteFunction} className="cta-button" >
+            Vote Now
+          </button>
           </div>
         </section>
       </main>

@@ -9,6 +9,7 @@ const Navigation = () => {
         // To allow the user enough time to properly view the alert message.
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
+
     
     const logoutProcess = async () => {
         try {
