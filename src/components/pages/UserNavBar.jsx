@@ -5,23 +5,24 @@ import "react-toastify/dist/ReactToastify.css";
 const Navigation = () => {
   const { user, logout } = UserAuth();
 
-  function wait(milliseconds) {
-    // To allow the user enough time to properly view the alert message.
-    return new Promise((resolve) => setTimeout(resolve, milliseconds));
-  }
+    function wait(milliseconds) {
+        // To allow the user enough time to properly view the alert message.
+        return new Promise((resolve) => setTimeout(resolve, milliseconds));
+    }
+    
+    const logoutProcess = async () => {
+        try {
 
-  const logoutProcess = async () => {
-    try {
-      toast.success("Logout successful.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+            toast.success('Logout successful.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
 
       await logout();
       await wait(5000);
