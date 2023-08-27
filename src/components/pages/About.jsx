@@ -1,34 +1,11 @@
 import React from "react";
 import video from "./src_trailer_1.mov";
+import Navbar from "./UserNavBar";
 
 const About = () => {
   return (
     <div className="home">
-      <nav className="navbar">
-        <ul className="left">
-          <li>
-            <a href="/">HOME</a>
-          </li>
-          <li>
-            <a href="/about">ABOUT</a>
-          </li>
-          <li>
-            <a href="/gallery">GALLERY</a>
-          </li>
-        </ul>
-        <ul className="nav-links">
-          <li>
-            <a href="/vote" className="nav-button">
-              VOTE
-            </a>
-          </li>
-          <li>
-            <a href="/signin" className="nav-button">
-              LOGIN
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
       <main className="main-content">
         <section className="about-section">
           <div className="about-content">
